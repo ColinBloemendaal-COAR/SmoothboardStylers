@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Smoothboard_Stylers.Areas.Identity.Data
+
+<h4>FAQ</h4>
+
+@*@{
+    if (Model.PageCount >= 2)
+    {
+        for (var p = 1; p <= Model.PageCount; p++)
+        {
+            if (p == ViewBag.CurrentPage)
+            {
+                <a href="@Url.Action("FAQ", new { Page = p })" class="btn btn-primary">@p</a>
+                continue;
+            }
+            <a href="@Url.Action("FAQ", new { Page = p })" class="btn btn-outline-primary">@p</a>
+        }
+    }
+}*@
+
+
+
+<div class="accordion" id="accordionExample">
+
+    @{int i = 0;}
+    @foreach (FAQ r in Model.Results)
+    {
+        
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne_@i">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_@i" aria-expanded="true" aria-controls="collapseOne_@i">
+                    <bold>@r.Question</bold>
+                </button>
+            </h2>
+            <div id="collapseOne_@i" class="accordion-collapse collapse" aria-labelledby="headingOne_@i" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    @r.Answer
+                </div>
+            </div>
+        </div>
+        i++;
+    }
+
+</div>

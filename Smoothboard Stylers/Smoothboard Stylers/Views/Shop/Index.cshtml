@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Smoothboard_Stylers.Areas.Identity.Data
+
+<h2>Articles</h2>
+<div class="card-deck">
+    @{
+        var i = 0;
+        foreach (Artikel u in Model.Results)
+        {
+            i++;
+            <div class="Ccontainer">
+                <div class="card">
+                    <div class="imgBx">
+                        <img src="~/img/ProductImage/@u.Image">
+                    </div>
+                    <div class="contentBx">
+                        <h2>@u.Titel</h2>
+                        <div class="size">
+                            <h3>Size :</h3>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                        </div>
+                        <div class="color">
+                            <h3>Color :</h3>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            if (i % 3 == 0)
+            {
+                <div class="w-100 d-none d-md-block"></div>
+            }
+        }
+
+    }
+</div>
+@{
+    if (Model.PageCount >= 2)
+    {
+        for (var p = 1; p <= Model.PageCount; p++)
+        {
+            if (p == ViewBag.CurrentPage)
+            {
+                <a href="/Admin/Articles?Page=@p" class="btn btn-primary">@p</a>
+                continue;
+            }
+            <a href="/Admin/Articles?Page=@p" class="btn btn-outline-primary">@p</a>
+        }
+    }
+}

@@ -1,0 +1,90 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Smoothboard_Stylers.Areas.Identity.Data
+@{
+    Artikel Article = ViewBag.Article;
+}
+
+<form method="post" asp-action="PlaceOrder" asp-controller="Shop">
+    <input type="hidden" name="ArticleId" value="@Article.Id" />
+
+    <div class="row mb-3">
+        <div class="col-6">
+            <div class="row">
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="Title" style="min-width: 150px">Title</label>
+                    <input type="text" class="form-control disabled" name="Title" id="Title" value="@Article.Titel" disabled>
+                </div>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="Model" style="min-width: 150px">Model</label>
+                    <input type="text" class="form-control disabled" name="Model" id="Model" value="@Article.Model" disabled>
+                </div>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="Price" style="min-width: 115px">Price</label>
+                    <label class="input-group-text" for="Price" style="min-width: 35px">€</label>
+                    <input type="text" class="form-control disabled" name="Price" id="Price" value="@Article.Price" disabled>
+                </div>
+                @if (Article.InSale)
+                {
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="SalePrice" style="min-width: 115px">Price</label>
+                        <label class="input-group-text" for="SalePrice" style="min-width: 35px">€</label>
+                        <input type="text" class="form-control disabled" name="SalePrice" id="SalePrice" value="@Article.SalePrice" disabled>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-6 text-center">
+            <div class="border rounded-3 ">
+                <img src="~/img/ProductImage/@Article.Image" style="max-height: 200px" class="rounded mx-auto d-bloc">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="FirstName">First name</label>
+                <input type="text" class="form-control" name="FirstName" id="FirstName" required>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="Lastname">Sur name</label>
+                <input type="text" class="form-control" name="Lastname" id="Lastname" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="Email">E-mailadress</label>
+                <input type="text" class="form-control" name="Email" id="Email" required>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="Cellphone">Cellphone</label>
+                <input type="tel" class="form-control" name="Cellphone" id="Cellphone">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="input-group">
+                <label class="input-group-text align-top" for="Message">Optional Message</label>
+                <textarea class="form-control" name="Message" id="Message" rows="5"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-info">Submit</button>
+        </div>
+    </div>
+
+
+</form>

@@ -1,0 +1,70 @@
+﻿
+@* Form to add a new article to db *@
+<form method="post" asp-action="Create" asp-controller="Article" enctype="multipart/form-data">
+    @* Title input *@
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="Title" style="min-width:150px" id="basic-addon1">Title</label>
+        <input type="text" class="form-control" name="Title" id="Title" aria-label="Article title" aria-describedby="basic-addon1">
+    </div>
+
+    @* Model input *@
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="Model" style="min-width:150px" id="basic-addon1">Model</label>
+        <select class="form-select" id="Model" name="Model">
+            <option selected>Select a Model</option>
+            <option value="Shortboard">Shortboard</option>
+            <option value="Fish">Fish</option>
+            <option value="Funboard">Funboard</option>
+            <option value="Longboard">Longboard</option>
+            <option value="Sup">Sup</option>
+        </select>
+    </div>
+
+    @* Image file input *@
+    <div class="input-group mb-3">
+        <label for="Image" class="input-group-text" style="min-width:150px">Select image</label>
+        <input class="form-control" type="file" id="Image" name="Image">
+    </div>
+
+    @* Article color input *@
+    <div class="input-group mb-3">
+        <label for="Color" class="input-group-text" style="min-width:150px">Color</label>
+        <input type="color" id="Color" class="form-control form-control-color" onchange="PlaceColorHex('1')" name="Color" value="#563d7c">
+        <input type="text" class="form-control disabled" id="ColorText" disabled>
+
+        <script>
+            function PlaceColorHex(itteration) {
+                document.getElementById("ColorText").value = document.getElementById("Color").value;
+            }
+        </script>
+    </div>
+
+    @* Size input *@
+    <div class="input-group mb-3">
+        <label for="Size" class="input-group-text" style="min-width:150px">Size</label>
+        <input type="text" class="form-control" name="Size" id="Size">
+    </div>
+
+    @* Price input *@
+    <div class="input-group mb-3">
+        <label for="Price" class="input-group-text" style="min-width:150px">Price</label>
+        <input type="number" step="0.01" min="0" class="form-control" name="Price" id="Price">
+    </div>
+
+    @* Sale Price input *@
+    <div class="input-group mb-3">
+        <label for="SalePrice" class="input-group-text" style="min-width:150px">Sale price</label>
+        <input type="number" step="0.01" min="0" class="form-control" name="SalePrice" id="SalePrice">
+    </div>
+
+    @* Stock input *@
+    <div class="input-group mb-3">
+        <label for="TotalInStock" class="input-group-text" style="min-width:150px">Total In Stock</label>
+        <input type="number" step="1" min="0" class="form-control" name="TotalInStock" id="TotalInStock">
+    </div>
+
+    @* Submit *@
+    <div class="col-12">
+        <button class="btn btn-info" type="submit">Add article</button>
+    </div>
+</form>

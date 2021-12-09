@@ -1,0 +1,181 @@
+﻿.Ccontainer {
+    position: relative;
+}
+
+.Ccontainer .card {
+    float: left;
+    position: relative;
+    width: calc((100% - 100px) / 4);
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 12.5px 12.5px;
+}
+
+        /* BLAAUWE CIRKEL */
+.Ccontainer .card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #003f59;
+    clip-path: circle(150px at 80%20%);
+    transition: 0.5s ease-in-out;
+}
+
+.Ccontainer .card:hover:before {
+    clip-path: circle(300px at 80% -10%);
+}
+        /* ACHTERGROND TEXT */
+.Ccontainer .card:after {
+    content: 'SmoothBoard Stylers';
+    position: absolute;
+    text-align: center;
+    top: 35%;
+    left: -9%;
+    font-size: 3.5em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255,255,255,0.04);
+}
+        /* IMAGE */
+.Ccontainer .card .imgBx {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s
+}
+
+.Ccontainer .card:hover .imgBx {
+    top: 0%;
+    transform: translateY(0%);
+}
+
+.Ccontainer .card .imgBx img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(25deg);
+    width: 270px;
+    height: 250px;
+}
+        /* EERSTE ZICHTBARE TEXT */
+.Ccontainer .card .contentBx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+.Ccontainer .card:hover .contentBx {
+    height: 210px;
+}
+
+.Ccontainer .card .contentBx h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    z-index: 100000
+}
+        /* MATEN EN KLEUREN NAAR BOVEN HALEN OP HOVER */
+.Ccontainer .card .contentBx .size,
+.Ccontainer .card .contentBx .color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.Ccontainer .card:hover .contentBx .size {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+.Ccontainer .card:hover .contentBx .color {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.6s;
+}
+
+.Ccontainer .card .contentBx .size h3,
+.Ccontainer .card .contentBx .color h3 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+    cursor: default;
+}
+        /* MATEN */
+.Ccontainer .card .contentBx .size span {
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: #fff;
+    margin: 0 5px;
+    transition: 0.5s;
+    color: #111;
+}
+
+.Ccontainer .card .contentBx .size span:hover {
+    background: #003f59;
+    cursor: pointer;
+}
+        /* KLEURBOLLEN */
+.Ccontainer .card .contentBx .color span {
+    width: 20px;
+    height: 20px;
+    background: #ff0;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+    .Ccontainer .card .contentBx .color span:hover {
+    width: 25px;
+    height: 25px;
+}
+            /* APARTE KLEURBOLLEN */
+.Ccontainer .card .contentBx .color span:nth-child(2) {
+    background: #9bdc28;
+}
+
+.Ccontainer .card .contentBx .color span:nth-child(3) {
+    background: #03a9f4;
+}
+
+.Ccontainer .card .contentBx .color span:nth-child(4) {
+    background: #e91e63;
+}
+
+.Ccontainer .card:hover .contentBx a {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.75s;
+}
+
+.Ccontainer .card .contentBx a:hover {
+    transition-delay: 0s;
+    background-color: #003f59;
+    padding: 15px 25px;
+}

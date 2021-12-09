@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Smoothboard_Stylers.Areas.Identity.Data
+
+@{
+    Newsletter nl = ViewBag.Newsletter;
+}
+
+<a asp-action="Newsletter" asp-controller="Index">Back to Newsletters</a>
+
+<form method="post" id="EditForm" asp-action="Update" asp-controller="NewsletterAdmin">
+    <input type="hidden" name="NewsletterId" value="@nl.Id" />
+</form>
+
+<table class="table table-hover">
+    <thead>
+            <tr>
+                <th>Id</th>
+                <th>Subject</th>
+                <th>Text</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@nl.Id</td>
+
+                <td><input class="form-control" type="text" name="Subject" value="@nl.Subject" form="EditForm" /></td>
+                <td><textarea type="text" class="form-control" name="Text" form="EditForm">@nl.Text</textarea></td>
+                <td>
+                    <button type="submit" asp-route-send="false" asp-action="Update" asp-controller="NewsletterAdmin" class="btn btn-outline-info" form="EditForm">Save</button>
+                    <button type="submit" asp-route-send="true" asp-action="Update" asp-controller="NewsletterAdmin" class="btn btn-outline-info" form="EditForm">Save & Send Newsletter</button>
+                </td>
+            </tr>
+    </tbody>
+</table>
+

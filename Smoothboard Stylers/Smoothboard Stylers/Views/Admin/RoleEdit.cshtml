@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Smoothboard_Stylers.Areas.Identity.Data
+
+@{
+    IdentityRole Role = ViewBag.Role;
+}
+
+<a asp-action="Roles" asp-controller="Admin">Back to Roles</a>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Normalized name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <form method="post" asp-action="RoleChange" asp-controller="Admin">
+                <input type="hidden" name="RoleId" value="@Role.Id" />
+                <input type="hidden" name="ConcurrencyStamp" value="@Role.ConcurrencyStamp" />
+                <td>@Role.Id</td>
+                <td><input type="text" class="form-control" name="RoleName" value="@Role.Name" /></td>
+                <td>@Role.NormalizedName</td>
+                <td><button type="submit" class="btn btn-outline-info">Submit</button></td>
+            </form>
+        </tr>
+    </tbody>
+</table>
+

@@ -1,0 +1,6 @@
+﻿<p>Do you really want to delete these records? This process cannot be undone.</p>
+<a asp-action="ConfirmDeletetion"></a>
+<form method="post" asp-action="ConfirmDeletetion" asp-controller="Article">
+    <input type="hidden" name="ArticleId" value="@ViewBag.ArticleId"/>
+    <button type="submit" class="btn btn-danger">Delete!</button>
+</form>
